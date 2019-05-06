@@ -25,12 +25,9 @@ const game = () => {
 
         options.forEach(option => {
             option.addEventListener('click', function() {
-                // console.log(this);
                 const computerNumber = Math.floor(Math.random() * 3);
-                // console.log(computerNumber);
-                // computerOptions[computerNumber];
                 const computerChoice = computerOptions[computerNumber];
-                console.log(computerChoice);
+                // console.log(computerChoice);
             });
         });
 
@@ -41,7 +38,7 @@ const game = () => {
     const compareHands = (playerChoice, computerChoice) => {
         const winner = document.querySelector('.winner');
         if (playerChoice === computerChoice) {
-            
+
         }
     };
 
