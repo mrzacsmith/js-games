@@ -21,9 +21,29 @@ const game = () => {
         const computerHand = document.querySelector('.computer-hand');
 
         // Computer game choice options
+        const computerOptions = ['rock', 'paper', 'scissors'];
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // console.log(this);
+                const computerNumber = Math.floor(Math.random() * 3);
+                // console.log(computerNumber);
+                // computerOptions[computerNumber];
+                const computerChoice = computerOptions[computerNumber];
+                console.log(computerChoice);
+            });
+        });
+
         
+       
     };
 
+    const compareHands = (playerChoice, computerChoice) => {
+        const winner = document.querySelector('.winner');
+        if (playerChoice === computerChoice) {
+            
+        }
+    };
 
     // Call functions
     startGame();
