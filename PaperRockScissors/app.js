@@ -29,10 +29,7 @@ const game = () => {
                 const computerChoice = computerOptions[computerNumber];
                 // console.log(computerChoice);
             });
-        });
-
-        
-       
+        });   
     };
 
     const compareHands = (playerChoice, computerChoice) => {
