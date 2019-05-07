@@ -34,9 +34,45 @@ const game = () => {
 
     const compareHands = (playerChoice, computerChoice) => {
         const winner = document.querySelector('.winner');
-        if (playerChoice === computerChoice) {
 
-        }
+        // Check to see if a tie
+        if (playerChoice === computerChoice) {
+            winner.textContent = 'It is a tie!';
+            return;
+        };
+
+        // Check if player plays rock
+        if (playerChoice === 'rock') {
+            if (computerChoice === 'scissors') {
+                winner.textContent = 'Player wins!';
+                return;
+            } else {
+                winner.textContent = 'Computer wins!';
+                return;
+            };
+        };
+
+        // Check if player plays paper
+        if (playerChoice === 'paper') {
+            if (computerChoice === 'rock') {
+                winner.textContent = 'Player wins!';
+                return;
+            } else {
+                winner.textContent = 'Computer wins!';
+                return;
+            }
+        };
+
+        // Check if player plays scissors
+        if (playMatch === 'scissors') {
+            if (computerChoice === 'paper') {
+                winner.textContent = 'Player wins';
+                return;
+            } else {
+                winner.textContent = 'Computer wins';
+                return;
+            }
+        };
     };
 
     // Call functions
