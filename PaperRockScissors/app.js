@@ -27,11 +27,27 @@ const game = () => {
             option.addEventListener('click', function() {
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
-                // console.log(computerChoice);
+                console.log(computerChoice);
+
+                // Compare hands
+                compareHands(this.textContent, computerChoice);
+
+                // Update images based on choice
+                playerHand.src = `./assests/${this.textContent}.png`;
+                computerHand.src = `./assests/${computerChoice}.png`;
             });
         });   
     };
 
+    // Update player and computer scores
+    const updateScore = () => {
+        const playerScore = document.querySelector('player-score p');
+        const computerScore = document.querySelector('computer-score p');
+        playerScore.textContent = pScore;
+        computerScore.textContent = cScore;
+    };
+
+    // Compare player and computer hands
     const compareHands = (playerChoice, computerChoice) => {
         const winner = document.querySelector('.winner');
 
@@ -45,9 +61,11 @@ const game = () => {
         if (playerChoice === 'rock') {
             if (computerChoice === 'scissors') {
                 winner.textContent = 'Player wins!';
+                pScore++;
                 return;
             } else {
                 winner.textContent = 'Computer wins!';
+                cScore++;
                 return;
             };
         };
@@ -56,20 +74,24 @@ const game = () => {
         if (playerChoice === 'paper') {
             if (computerChoice === 'rock') {
                 winner.textContent = 'Player wins!';
+                pScore++;
                 return;
             } else {
                 winner.textContent = 'Computer wins!';
+                cScore++;
                 return;
             }
         };
 
         // Check if player plays scissors
-        if (playMatch === 'scissors') {
+        if (playerChoice === 'scissors') {
             if (computerChoice === 'paper') {
                 winner.textContent = 'Player wins';
+                pScore++;
                 return;
             } else {
                 winner.textContent = 'Computer wins';
+                cScore++;
                 return;
             }
         };
