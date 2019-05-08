@@ -1,6 +1,7 @@
 const game = () => {
     let pScore = 0;
     let cScore = 0;
+    
 
     // Start the game
     const startGame = () => {
@@ -28,6 +29,8 @@ const game = () => {
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
                 console.log(computerChoice);
+                console.log(`pScore: ${pScore}`);
+                console.log(`cScore: ${cScore}`);
 
                 // Compare hands
                 compareHands(this.textContent, computerChoice);
@@ -41,10 +44,11 @@ const game = () => {
 
     // Update player and computer scores
     const updateScore = () => {
-        const playerScore = document.querySelector('player-score p');
-        const computerScore = document.querySelector('computer-score p');
+        const playerScore = document.querySelector('.player-score p');
+        const computerScore = document.querySelector('.computer-score p');
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
+       
     };
 
     // Compare player and computer hands
@@ -62,10 +66,12 @@ const game = () => {
             if (computerChoice === 'scissors') {
                 winner.textContent = 'Player wins!';
                 pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Computer wins!';
                 cScore++;
+                updateScore();
                 return;
             };
         };
@@ -75,10 +81,12 @@ const game = () => {
             if (computerChoice === 'rock') {
                 winner.textContent = 'Player wins!';
                 pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Computer wins!';
                 cScore++;
+                updateScore();
                 return;
             }
         };
@@ -88,10 +96,12 @@ const game = () => {
             if (computerChoice === 'paper') {
                 winner.textContent = 'Player wins';
                 pScore++;
+                updateScore();
                 return;
             } else {
                 winner.textContent = 'Computer wins';
                 cScore++;
+                updateScore();
                 return;
             }
         };
