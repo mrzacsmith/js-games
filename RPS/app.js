@@ -25,6 +25,11 @@ const game = () => {
         hands.forEach(hand => {
             hand.addEventListener('animationend', function() {
                 this.style.animation = '';
+               
+                // Resets both hands to rock
+                setTimeout(() => {
+                    this.src = `./assests/rock.png`;
+                }, 2000);
             });
         });
 
