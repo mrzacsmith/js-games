@@ -21,14 +21,16 @@ const game = () => {
         const playerHand = document.querySelector('.player-hand');
         const computerHand = document.querySelector('.computer-hand');
         const hands = document.querySelectorAll('.hands img');
+        
 
         hands.forEach(hand => {
             hand.addEventListener('animationend', function() {
                 this.style.animation = '';
-               
+                const winner = document.querySelector('.winner');
                 // Resets both hands to rock
                 setTimeout(() => {
                     this.src = `./assests/rock.png`;
+                    winner.textContent = 'Choose an option';
                 }, 2000);
             });
         });
