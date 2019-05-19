@@ -29,9 +29,29 @@
             game.message = document.querySelector('.message');
             game.guessInput = document.querySelector('input');
             game.btn = document.querySelector('button');
+            game.btn.addEventListener('click', guessValue);
 
             init();
         });
+
+        function guessValue() {
+            // console.log(`Your guess is ${game.guessInput.value}`);
+            let tempGuess = game.guessInput.value;
+            tempGuess = parseInt(tempGuess);
+            
+            if(isNaN(tempGuess)) {
+                message('Please enter only digits!', 'red');
+            } else if(tempGuess === game.num) {
+                message(`Correct you guess ${game.num}`, 'green');
+                game.guessInput.style.borderColor = 'green';
+            } else {
+                let holder = tempGuess > game.num ? {'color':'blue', 'message':'Was high'} : {'color':'purple', 'message':'Was low'};
+                message(`Incorrect guess was ${tempGuess}`, holder.color);
+                game.guessInput.style.borderColor = holder.color;
+            }
+            console.log(tempGuess);
+            console.log(`The correct guess is ${game.num}.`);
+        }
 
         function init() {
             game.num = ranNumber(game.min, game.max);
