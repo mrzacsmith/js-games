@@ -45,8 +45,8 @@
                 message(`Correct you guess ${game.num}`, 'green');
                 game.guessInput.style.borderColor = 'green';
             } else {
-                let holder = tempGuess > game.num ? {'color':'blue', 'message':'Was high'} : {'color':'purple', 'message':'Was low'};
-                message(`Incorrect guess was ${tempGuess}`, holder.color);
+                let holder = tempGuess > game.num ? {'color':'blue', 'message':'Guess is too high'} : {'color':'purple', 'message':'Guess is too low'};
+                message(`${holder.message}`, holder.color);
                 game.guessInput.style.borderColor = holder.color;
             }
             console.log(tempGuess);
