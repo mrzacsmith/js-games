@@ -19,8 +19,8 @@ saveHighScore = e => {
   // console.log("clicked save");
 
   const score = {
-    score: Math.floor(Math.random() * 100),
-    // score:
+    // score: Math.floor(Math.random() * 100),
+    score: mostRecentScore,
     name: username.value
   };
   highScores.push(score);

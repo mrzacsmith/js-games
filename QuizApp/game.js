@@ -3,6 +3,8 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progress-text");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progress-bar-full");
+const loader = document.getElementById("loader");
+const game = document.getElementById("game");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -20,7 +22,7 @@ fetch(
     return res.json();
   })
   .then(loadedQuestions => {
-    console.log(loadedQuestions.results);
+    // console.log(loadedQuestions.results);
     questions = loadedQuestions.results.map(loadedQuestion => {
       const formattedQuestion = {
         question: loadedQuestion.question
@@ -41,6 +43,7 @@ fetch(
       return formattedQuestion;
     });
     // questions = loadedQuestions;
+
     startGame();
   })
   .catch(err => {
@@ -49,7 +52,7 @@ fetch(
 
 //Constants
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
 startGame = () => {
   questionCounter = 0;
@@ -57,6 +60,8 @@ startGame = () => {
   availableQuestions = [...questions];
   // console.log(availableQuestions);
   getNewQuestion();
+  game.classList.remove("hidden");
+  loader.classList.add("hidden");
 };
 
 getNewQuestion = () => {
